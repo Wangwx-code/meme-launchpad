@@ -1,0 +1,21 @@
+
+kubectl exec -it -n mip mysql-0 -- /bin/bash
+
+kubectl -n mip logs --tail=50 -f hospital-joint-service-9fc576bd4-gdfk7 | grep -v ThirdReportRecordUploadServiceImpl | grep -v DefaultProcessServiceImpl
+
+kubectl -n mip logs hospital-joint-service-9fc576bd4-gdfk7 | grep -v ThirdReportRecordUploadServiceImpl | grep -v DefaultProcessServiceImpl
+
+kubectl delete pod hospital-joint-service-9fc576bd4-gdfk7 -n mip
+
+kubectl exec -it hospital-joint-service-9fc576bd4-gdfk7 -n mip bash
+
+
+
+kubectl -n mip logs --tail=50 mip-service-8b76c77bb-cqng7
+
+
+
+{"status":"1","type":"1","error_msg":"","orgCode":"test","preOrderNo":"164","results":{"sourceId":"6SrgrzOFEo6UMkTHqgfBdrrLcC9qK6fHL0BcaDKKFYM6Ujdr4gx2kMmHwgGkicFz","userId":"jMI3gEOG/UFAno8n4lRckqtkIEN6AJlPZMEUYLdo8KI=","start_time":"20251220_104300_888437","complete_time":"20251220_104344_507982","quality_control_list":[{"qc_theme":"肝胆胰脾B超","qc_desc":"描述中发现左肝内8mm×6mm无回声暗区（符合囊肿特征）及胆囊多发息肉样变，但结论为'未见明显异常'，存在'有病'与'没病'的根本冲突","qc_suggest":"结论应修正为包含肝囊肿和胆囊息肉样变，或至少标注'肝囊肿，胆囊多发息肉样变'，避免将有明确病灶的检查总结为正常","qc_class":"2"},{"qc_theme":"胸部螺旋CT平扫","qc_desc":"描述中明确指出右肺中叶外段存在3×2mm实性结节，但结论为'未见明显异常'，属于描述有病灶而结论定为正常","qc_suggest":"结论应更新为'右肺中叶外段微小实性结节，建议定期复查'或类似表述，以与描述保持一致","qc_class":"2"},{"qc_theme":"一般情况检查","qc_desc":"体重指数单位字段包含格式错误'mxm'，不符合标准单位'kg/m²'或'kg/(m²)'","qc_suggest":"修改为'kg/m²'或'kg/(m²)'","qc_class":"1"},{"qc_theme":"全血细胞分析","qc_desc":"血红蛋白浓度参考值字段包含非标准字符'个'，属于非标准字符混入","qc_suggest":"删除'个'，修改为'120.00-160.00'","qc_class":"1"},{"qc_theme":"全血细胞分析","qc_desc":"多个项目数值字段末尾包含非法符号';'，属于录入格式错误","qc_suggest":"删除数值末尾的';'，如'4.32;'应改为'4.32'","qc_class":"1"}]}}
+
+[{"qc_theme":"肝胆胰脾B超","qc_desc":"描述中发现左肝内8mm×6mm无回声暗区（符合囊肿特征）及胆囊多发息肉样变，但结论为'未见明显异常'，存在'有病'与'没病'的根本冲突","qc_suggest":"结论应修正为包含肝囊肿和胆囊息肉样变，或至少标注'肝囊肿，胆囊多发息肉样变'，避免将有明确病灶的检查总结为正常","qc_class":"2"},{"qc_theme":"胸部螺旋CT平扫","qc_desc":"描述中明确指出右肺中叶外段存在3×2mm实性结节，但结论为'未见明显异常'，属于描述有病灶而结论定为正常","qc_suggest":"结论应更新为'右肺中叶外段微小实性结节，建议定期复查'或类似表述，以与描述保持一致","qc_class":"2"},{"qc_theme":"一般情况检查","qc_desc":"体重指数单位字段包含格式错误'mxm'，不符合标准单位'kg/m²'或'kg/(m²)'","qc_suggest":"修改为'kg/m²'或'kg/(m²)'","qc_class":"1"},{"qc_theme":"全血细胞分析","qc_desc":"血红蛋白浓度参考值字段包含非标准字符'个'，属于非标准字符混入","qc_suggest":"删除'个'，修改为'120.00-160.00'","qc_class":"1"},{"qc_theme":"全血细胞分析","qc_desc":"多个项目数值字段末尾包含非法符号';'，属于录入格式错误","qc_suggest":"删除数值末尾的';'，如'4.32;'应改为'4.32'","qc_class":"1"}]
+
